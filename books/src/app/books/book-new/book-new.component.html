@@ -1,0 +1,30 @@
+<fieldset>
+  <legend>Create Book</legend>
+
+  {{ form.value | json }}
+  <form (submit)='onSubmit($event, form)' #form='ngForm'>
+    <div>
+      <label for="">Title</label>
+      <input type="text" name="title" [(ngModel)]='book.title' required>
+    </div>
+    <div>
+      <label for="">Author</label>
+      <input type="text" name="author" [(ngModel)]='book.author' required>
+    </div>
+    <div>
+      <label for="">Year</label>
+      <input type="text" name="year" [(ngModel)]='book.year'>
+    </div>
+    <div>
+      <label for="">Pages</label>
+      <input type="text" name="pages" [(ngModel)]='book.pages'>
+    </div>
+    <div>
+      <label for="">Publisher</label>
+      <input type="text" name="publisher" [(ngModel)]='book.publisher'>
+    </div>
+    <!-- you can use [disabled]='form.invalid' or [hidden]='form.invalid' -->
+    <!-- to prevent hacker, using *ngIf='form.valid' is better -->
+    <button *ngIf='form.valid'>Submit</button>
+  </form>
+</fieldset>
